@@ -11,8 +11,7 @@ public class MagicNumbers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //min = 1;
-        //max = 1000;
+        
 
         print("Загадайте число от " + min + " до " + max);
         UpdateGuess();
