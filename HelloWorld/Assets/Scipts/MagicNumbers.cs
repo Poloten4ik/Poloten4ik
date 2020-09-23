@@ -32,7 +32,7 @@ public class MagicNumbers : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Return ) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            print("Игра закончена");
+            print("game over");
             Start();
 
         }
