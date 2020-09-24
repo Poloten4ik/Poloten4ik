@@ -1,17 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MagicNumbers : MonoBehaviour
 {
+    public Text title;
+
     public int min ;
     public int max ;
+    
     int guess;
 
     // Start is called before the first frame update
     void Start()
     {
+        title.text = "Magic Numbers";
         
+        min = 1;
+        max = 1000;
 
         print("Загадайте число от " + min + " до " + max);
         UpdateGuess();
@@ -40,6 +47,6 @@ public class MagicNumbers : MonoBehaviour
     void UpdateGuess()
     {
         guess = (min + max) / 2;
-        print("Ваше число: " + guess + " ?");
+        Debug.Log("Ваше число: " + guess + " ?");
     }
 }
