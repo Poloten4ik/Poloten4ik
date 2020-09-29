@@ -6,26 +6,26 @@ using UnityEngine.UI;
 public class MagicNumbers : MonoBehaviour
 {
     public Text title;
+    public Text guessText;
+    public Text resultText;
+    public Text gameOver;
 
     public int min ;
     public int max ;
     
     int guess;
+    int result;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        title.text = "Magic Numbers";
-        
         min = 1;
         max = 1000;
-
-        print("Загадайте число от " + min + " до " + max);
-        UpdateGuess();
+        title.text = "Загадайте цифру от " + min + " до " + max;
+        title.color = Color.red;
+        UpdateGuess();       
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.DownArrow)) 
         {
@@ -39,14 +39,27 @@ public class MagicNumbers : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Return ) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            print("game over");
+            gameOver.text = "game over";
+            resultText.text = "Количество ходов: " + (result - 1);
+            resultText.color = Color.black;
             Start();
 
         }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            min = 1;
+            max = 1000;
+            guess = (min + max) / 2;
+            result = 0;
+            Start();
+        }
     }
-    void UpdateGuess()
+
+    private void UpdateGuess()
     {
         guess = (min + max) / 2;
-        Debug.Log("Ваше число: " + guess + " ?");
+        guessText.text = "Ваше число: " + guess + " ? ";
+        guessText.color = Color.blue;
+        result += 1;
     }
 }
