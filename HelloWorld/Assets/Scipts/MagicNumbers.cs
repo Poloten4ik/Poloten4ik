@@ -51,6 +51,8 @@ public class MagicNumbers : MonoBehaviour
             max = 1000;
             guess = (min + max) / 2;
             result = 0;
+            gameOver.text = " ";
+            resultText.text = " ";
             Start();
         }
     }
