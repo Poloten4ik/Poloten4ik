@@ -24,18 +24,25 @@ public class MagicNumbers : MonoBehaviour
         title.color = Color.red;
         UpdateGuess();       
     }
-
+    public void Higher()
+    {
+        max = guess;
+        UpdateGuess();
+    }
+    public void Lower()
+    {
+        min = guess;
+        UpdateGuess();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.DownArrow)) 
         {
-            max = guess;
-            UpdateGuess();
+            Higher();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            min = guess;
-            UpdateGuess();
+            Lower();
         }
         else if (Input.GetKeyDown(KeyCode.Return ) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
@@ -52,7 +59,7 @@ public class MagicNumbers : MonoBehaviour
             guess = (min + max) / 2;
             result = 0;
             gameOver.text = " ";
-            resultText.text = " ";
+            resultText.text = " "; 
             Start();
         }
     }
