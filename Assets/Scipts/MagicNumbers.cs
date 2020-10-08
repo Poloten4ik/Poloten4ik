@@ -13,11 +13,12 @@ public class MagicNumbers : MonoBehaviour
     public int min ;
     public int max ;
     
-    int guess;
+    public int guess;
     int result;
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         min = 1;
         max = 1000;
         title.text = "Загадайте цифру от " + min + " до " + max;
@@ -26,23 +27,23 @@ public class MagicNumbers : MonoBehaviour
     }
     public void Higher()
     {
-        max = guess;
+        min = guess;
         UpdateGuess();
     }
     public void Lower()
     {
-        min = guess;
+        max = guess;
         UpdateGuess();
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.DownArrow)) 
         {
-            Higher();
+            Lower();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Lower();
+            Higher();
         }
         else if (Input.GetKeyDown(KeyCode.Return ) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
