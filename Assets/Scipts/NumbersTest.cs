@@ -13,7 +13,7 @@ public class NumbersTest : MonoBehaviour
     }
 
     // update is called once per frame
-    void update()
+    void Update()
     {
         number += 1;
         print(number);
